@@ -1,0 +1,10 @@
+.cards {
+  width: 83%;
+  display: inline-block;
+  position: absolute;
+  top: 130px;
+}
+.cardFlex {
+  display: flex;
+  flex-wrap: wrap;
+}
