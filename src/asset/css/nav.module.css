@@ -1,0 +1,60 @@
+.link {
+  text-decoration: none;
+  color: red;
+}
+.inactive {
+  text-decoration: none;
+  color: white;
+}
+
+.nav {
+  display: block;
+  width: 100%;
+  background-color: black;
+  position: sticky;
+  /* Firefox 3.5 - 3.6 */
+  box-shadow: 1px 1px 1px 1px #fff;
+}
+.nav .ul,
+.nav ul {
+  display: inline-block;
+  width: 70%;
+  padding-left: 11%;
+}
+.li {
+  display: inline-block;
+  padding: 20px;
+  font-size: 150%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.nav h3 {
+  display: inline-block;
+  text-align: center;
+  font-size: 170%;
+  margin-left: 20px;
+}
+.sea {
+  margin-left: 10px;
+  width: 15%;
+  display: inline-block;
+  padding: 0px;
+  height: auto;
+  border-radius: 5px;
+  background-color: #3a3b3c;
+}
+.flex4 {
+  display: flex;
+}
+.sea .int {
+  display: inline-block;
+  border: none;
+  width: 80%;
+  padding: 3px;
+  font-size: 110%;
+  border: none;
+  color: grey;
+  background-color: #3a3b3c;
+}
+.flex4 img {
+  margin-top: 10px;
+}

@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+hr {
+  background-color: grey;
+  height: 2px;
+  margin-bottom: 20px;
+}
+html,
+body {
+  min-height: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+pre {
+  width: min-content;
+  display: block;
+  margin-top: 10px;
+  font-size: 120%;
+  width: 100%;
+  overflow-x: visible;
+  font-weight: normal;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
