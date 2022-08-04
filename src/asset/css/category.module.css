@@ -1,0 +1,48 @@
+.category ul {
+  padding: 5px;
+  margin: 10px;
+  font-size: 120%;
+}
+.category {
+  width: 15%;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 30px;
+  height: fit-window;
+
+  display: inline-block;
+}
+.category ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.category ul div {
+  display: flex;
+}
+.category img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.category .cat {
+  display: flex;
+  margin-top: 20px;
+  font-size: 120%;
+  color: red;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.category .cat span {
+  margin-left: 5px;
+  color: red;
+  font-size: 130%;
+}
+.category ul img {
+  width: 20px;
+  cursor: pointer;
+
+  height: 20px;
+  border-radius: 50%;
+}

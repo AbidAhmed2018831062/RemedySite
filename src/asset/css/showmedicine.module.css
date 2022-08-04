@@ -1,0 +1,113 @@
+.showMedicine {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.showMedicine .show {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  background-color: #189a2e;
+  color: white;
+}
+.showMedicine .show p {
+  width: 90%;
+}
+.showMedicine .show img {
+  width: 20px;
+  height: 20px;
+}
+.showMedicine .image {
+  display: flex;
+  flex-wrap: wrap;
+  margin: none;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.showMedicine .image .imagePart {
+  width: 48%;
+  margin-right: 2%;
+}
+.showMedicine .image img {
+  width: 100%;
+}
+.showMedicine .button {
+  margin-top: 20px;
+  padding: 10px 70px;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 120%;
+  color: black;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.showMedicine .priceDiv {
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 100%;
+}
+.showMedicine .buy {
+  display: block;
+  background-color: #b0c4c3;
+  padding: 10px;
+
+  font-weight: bold;
+  font-size: 120%;
+  color: black;
+}
+.showMedicine .price {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 130%;
+  display: block;
+}
+.showMedicine .medicinedes {
+  width: 50%;
+}
+.showMedicine li img {
+  max-width: 20px;
+  height: 20px;
+}
+.showMedicine li div {
+  display: flex;
+}
+.showMedicine h3 {
+  color: red;
+  margin-top: 20px;
+  font-size: 130%;
+  margin-bottom: 10px;
+}
+.showMedicine li {
+  font-size: 105%;
+}
+.showMedicine .para {
+  width: min-content;
+  display: block;
+  margin-top: 20px;
+  font-size: 120%;
+  width: 100%;
+  overflow-x: visible;
+  font-weight: normal;
+  color: black;
+}
+.showMedicine pre {
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+.showMedicine .description {
+  margin-top: 70px;
+  margin-bottom: 40px;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+.showMedicine .desHead {
+  margin-bottom: 20px;
+  display: flex;
+}
