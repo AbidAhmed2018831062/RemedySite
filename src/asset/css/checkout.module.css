@@ -1,0 +1,102 @@
+.checkout {
+  display: flex;
+  width: 70%;
+  padding-top: 20px;
+  margin: 0 auto;
+}
+.checkout .delivery {
+  width: 65%;
+  margin-right: 2%;
+}
+.checkout .delivery h2 {
+  margin-bottom: 10px;
+}
+.checkout .orderdetails {
+}
+.checkout .delivery input {
+  width: 100%;
+
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.checkout .delivery select {
+  width: 100%;
+
+  border-bottom: 1px solid grey;
+
+  margin-bottom: 20px;
+  padding: 5px;
+}
+input[type="submit"] {
+  background: linear-gradient(to right, #451a8b, #d13cc4);
+  color: white;
+  font-weight: bold;
+}
+
+.checkout .delivery .choose {
+  width: 100%;
+}
+.checkout .delivery .choose input {
+  width: fit-content;
+}
+.checkout .delivery .choose div {
+  margin-top: 20px;
+}
+.checkout .delivery .choose span {
+  font-weight: bold;
+  font-size: 110%;
+  margin-left: 10px;
+}
+.checkout .order {
+  width: 40%;
+  margin-left: 20px;
+  padding: 10px;
+  height: fit-content;
+  border-radius: 5px;
+
+  background-color: #f4f4f4;
+}
+.checkout .order .flex {
+  display: flex;
+}
+.checkout .order .flex .total {
+  width: 90%;
+}
+.checkout .order h4 {
+  font-size: 120%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.checkout .order hr {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.checkout .order h3 {
+  padding-top: 20px;
+  font-size: 130%;
+}
+.checkout .order .checkout {
+  width: 100%;
+
+  background: linear-gradient(to right, #451a8b, #d13cc4);
+  color: white;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+.checkout .order .ship {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.checkout .order input,
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}

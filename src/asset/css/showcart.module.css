@@ -1,0 +1,94 @@
+.showcart {
+  width: 80%;
+
+  background-color: white;
+}
+.cart1 {
+  box-shadow: 30px 0px 40px rgba(0, 0, 0, 0.1),
+    -30px 0px 40px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 5% auto;
+  display: flex;
+  border-radius: 8px;
+}
+.showcart .hr {
+  height: 2px;
+  background-color: grey;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.showcart .h3 {
+  font-size: 140%;
+  padding: 30px;
+  width: 100%;
+}
+.showcart .select {
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.showcart input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+.showcart body {
+  background-color: #dddddd;
+}
+.cart1 .order {
+  width: 40%;
+  margin-left: 20px;
+  padding: 10px;
+  height: fit-content;
+  border-radius: 5px;
+
+  background-color: #dddddd;
+}
+.cart1 .order .flex {
+  display: flex;
+}
+.cart1 .order .flex .total {
+  width: 90%;
+}
+.cart1 .order h4 {
+  font-size: 120%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.cart1 .order hr {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.cart1 .order h3 {
+  padding-top: 20px;
+  font-size: 130%;
+}
+.cart1 .order .checkout {
+  width: 100%;
+
+  background: linear-gradient(to right, #451a8b, #d13cc4);
+  color: white;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+.cart1 .order .ship {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.cart1 .order input,
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}

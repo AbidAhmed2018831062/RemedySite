@@ -1,0 +1,48 @@
+.cart .cartitems {
+  display: flex;
+  padding-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.cart {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.cart .cartitems .img {
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 50px;
+  max-height: 50px;
+  margin-right: 10px;
+}
+.cart .cartitems input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.cart .cartitems .name {
+  width: 30%;
+  color: grey;
+}
+.cart .cartitems span {
+  padding: 10px 15px;
+
+  height: fit-content;
+}
+.cart .cartitems .price {
+  color: grey;
+  margin-right: 20px;
+  width: 25%;
+}
+
+.cart .cartitems .del {
+  width: 20%;
+  margin-top: 0px;
+  text-align: center;
+}
+.cart .cart .del img {
+  width: 20px;
+  height: 20px;
+}
