@@ -1,0 +1,50 @@
+.doctorcategory ul {
+  padding: 5px;
+  margin: 10px;
+  font-size: 120%;
+}
+.doctorcategory {
+  background-color: white;
+  width: 15%;
+  padding-bottom: 20%;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 30px;
+  height: fit-window;
+
+  display: inline-block;
+}
+.doctorcategory ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.doctorcategory ul div {
+  display: flex;
+}
+.doctorcategory img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.doctorcategory .cat {
+  display: flex;
+  margin-top: 20px;
+  font-size: 120%;
+  color: red;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.doctorcategory .cat span {
+  margin-left: 5px;
+  color: red;
+  font-size: 130%;
+}
+.doctorcategory ul img {
+  width: 20px;
+  cursor: pointer;
+
+  height: 20px;
+  border-radius: 50%;
+}

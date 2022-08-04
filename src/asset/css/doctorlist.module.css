@@ -1,0 +1,14 @@
+.doctorlist {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+
+  background-color: #dadde7;
+}
+
+.doctorlist .container {
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  padding-top: 20px;
+}
