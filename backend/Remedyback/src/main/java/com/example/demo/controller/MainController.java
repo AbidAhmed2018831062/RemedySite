@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,14 +24,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.dao.CartRepo;
 import com.example.demo.dao.DoctorRepo;
 import com.example.demo.dao.MedicineRepo;
-import com.example.demo.dao.OrderRepo;
 import com.example.demo.dao.UserRepo;
 import com.example.demo.help.ErrorResponse;
 import com.example.demo.model.AuthRequest;
 import com.example.demo.model.Cart;
 import com.example.demo.model.Doctor;
 import com.example.demo.model.Medicine;
-import com.example.demo.model.Orders;
 import com.example.demo.model.Users;
 import com.example.demo.service.FileUpload;
 import com.example.demo.util.JwtUtil;
@@ -41,12 +38,15 @@ import com.example.demo.util.JwtUtil;
 @RestController
 public class MainController{
 	private static final String USERS_ID = "/users/{id}";
-@Autowired
-CartRepo cartRepo;
-	
+
+	@Autowired
+	FileUpload fileup;
+	@Autowired
+	MedicineRepo mediRepo;
 	@Autowired
 	DoctorRepo doctorRepo;
-	
+	@Autowired 
+	CartRepo cartRepo;
 	@Autowired
 	UserRepo repo;
 	@Autowired
@@ -54,7 +54,69 @@ CartRepo cartRepo;
     @Autowired
     private AuthenticationManager authenticationManager;
 	PasswordEncoder p=new BCryptPasswordEncoder();
+	@GetMapping(value="/doctor/getdoctors")
+	public ResponseEntity<?> getDoctors()
+	{
+		List<Doctor> list=new ArrayList<>();
+       list=doctorRepo.findAll();
+		if(list!=null)
+		return ResponseEntity.status(200).body(list);
+		else
+		return ResponseEntity.of(Optional.of(new ErrorResponse("No doctor found","400")));
+
+	}
+	@PostMapping(path="/addmedicine",produces= {"application/json"})
+	@ResponseBody
+	public ResponseEntity<ErrorResponse> addMedicine(@RequestParam("medicineImage") MultipartFile image, @RequestParam("name") String name, @RequestParam("description") String description, @RequestParam("company") String company,@RequestParam("mg") int mg,@RequestParam("category") String category,@RequestParam("price") int price, @RequestParam("quantity") int quantity){
+		if(image.getOriginalFilename().contains("png")||image.getOriginalFilename().contains("jpg")||image.getOriginalFilename().contains("jpeg")||image.getOriginalFilename().contains("webp")){
+			
+	   Medicine medi=new Medicine();
+	   medi.setCompany(company);
+	   medi.setDesc(description);
+	   medi.setToken(new Date().getTime());
+	   medi.setFileName(image.getOriginalFilename()+new Date());
+	   medi.setName(name);
+	   medi.setCategory(category);
+	   medi.setMg(mg);
+	   medi.setPrice(price);
+	   medi.setQuantity(quantity);
+	   String msg=fileup.fileUpload(image);
+	   if(!msg.equals("Error"))
+	   {
+		medi.setFileName(msg);
+		medi.setId((Long) (new Date().getTime()));
+		mediRepo.save(medi);
+		return ResponseEntity.status(200).body(new ErrorResponse("Medicine added sucessfully","200"));
+	   }
+	   else
+		return ResponseEntity.status(500).body(new ErrorResponse("There was an error while uploading the file","500"));
+	}
+	else
+	{
+		return ResponseEntity.status(400).body(new ErrorResponse("Only png, jpg and jpeg format is allowed","400"));
+	}
+	}
 	
+	@DeleteMapping(value="users/cart/delete/{id}")
+	public ResponseEntity<?> getAllMedicine1(@PathVariable("id") Long id)
+	{
+		
+		
+		cartRepo.deleteById(id);
+		
+		return ResponseEntity.status(200).body(new ErrorResponse("Successfully deleted", "200"));
+	}
+	
+	@GetMapping(value="/users/cart/{username}")
+	public ResponseEntity<?> getAllMedicine(@PathVariable("username") String username)
+	{
+		
+		List<Cart> list=new ArrayList<>();
+		list=cartRepo.findByUsername(username);
+		System.out.println(list.get(0).getFileName());
+		return ResponseEntity.status(200).body(list);
+	}
+   
 	
 	@PostMapping(path="/adduser",produces= {"application/json"},consumes= {"application/json"})
 	@ResponseBody
@@ -117,7 +179,18 @@ CartRepo cartRepo;
 			return ResponseEntity.status(400).body(new ErrorResponse("Username Already in use","400"));
 	}
 	
+	@GetMapping(value="/medicine/{id}")
+	public ResponseEntity<?> getMedicine(@PathVariable("id") Long id)
+	{
+	
+        Optional<Medicine> med=mediRepo.findById(id);
+		if(med!=null)
+		return ResponseEntity.status(200).body(med);
+		else
+		return ResponseEntity.of(Optional.of(new ErrorResponse("No id found","400")));
 
+	}
+	
 	@PostMapping(path="/login",produces= {"application/json"},consumes= {"application/json"})
 	@ResponseBody
 	public ResponseEntity<ErrorResponse> login(@RequestBody AuthRequest authRequest){
@@ -160,4 +233,4 @@ CartRepo cartRepo;
 	}
 
     
-}
+
