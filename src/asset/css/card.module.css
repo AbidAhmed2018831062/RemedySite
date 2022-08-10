@@ -1,0 +1,47 @@
+.card {
+  color: black;
+  width: 33%;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.card .imageSettle {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+.card img {
+  min-width: 100px;
+  max-width: 200px;
+  min-height: 150px;
+  max-height: 200px;
+  display: block;
+}
+.card .name {
+  margin-top: 10px;
+  display: block;
+  font-size: 120%;
+  font-weight: bold;
+}
+.card .price {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 112%;
+  display: block;
+}
+.card .company {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 112%;
+  display: block;
+}
+.card .button {
+  margin-top: 20px;
+  padding: 8px 70px;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 90%;
+  color: black;
+}
