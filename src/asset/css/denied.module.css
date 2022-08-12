@@ -1,0 +1,21 @@
+.denied h1,
+h3 {
+  margin-bottom: 20px;
+}
+.denied h1 {
+  font-size: 200%;
+}
+.denied h3 {
+  font-size: 160%;
+}
+.denied {
+  color: #6851c2;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+}
+.denied p {
+  width: 60%;
+  text-align: center;
+  margin-left: 20%;
+}
