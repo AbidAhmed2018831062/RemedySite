@@ -1,0 +1,86 @@
+.blogs {
+  display: flex;
+}
+.blogs.main {
+  width: 50%;
+}
+.blogs .profile {
+  width: 100%;
+}
+.blogs .sidebar span {
+  margin-top: 5px;
+}
+.blogs.sidebar {
+  width: 25%;
+  font-weight: bold;
+  font-size: 110%;
+  margin-left: 0.4%;
+}
+.blogs.sidebar ul {
+  padding-left: 0px;
+}
+.blogs.sidebar hr {
+  width: 65%;
+}
+.blogs.recent :nth-child(1) {
+  margin-top: 10px;
+}
+.blogs.sidebar li {
+  padding: 5px;
+}
+.blogs.sidebar li:hover {
+  background-color: grey;
+  border-radius: 5px;
+}
+.blogs.recent li {
+  display: flex;
+  margin-bottom: 20px;
+}
+.blogs.sidebar h4 {
+  font-size: 130%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: red;
+}
+.blogs.recent img {
+  margin-top: 0px;
+}
+.blogs.recent li {
+  margin-top: 0px;
+}
+.recent span {
+  font-size: 100%;
+  margin-top: 15px;
+}
+.blogs.sidebar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.blogs.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+}
+.blogs.sidebar li {
+  margin-bottom: 20px;
+  display: flex;
+  list-style-type: none;
+  text-align: left;
+}
+.blogs.button {
+  display: inline-block;
+  background: none;
+  border: 1px solid grey;
+  width: 90%;
+  margin-left: 5px;
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+}

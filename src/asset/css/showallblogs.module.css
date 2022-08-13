@@ -1,0 +1,89 @@
+.catpo {
+  display: flex;
+  margin-top: 50px;
+}
+.catpo .cat {
+  width: 30%;
+  margin-right: 20px;
+}
+.catpo .navLink {
+  text-decoration: none;
+}
+.catpo .pos {
+  width: 70%;
+}
+.catpo .post {
+  width: auto;
+}
+.catpo .cat li {
+  list-style-type: none;
+  padding: 10px;
+  font-size: 130%;
+  font-weight: bold;
+  cursor: pointer;
+}
+.catpo .cat h4 {
+  font-size: 170%;
+  font-weight: bolder;
+  color: red;
+  padding: 10px;
+}
+.catpo .delDiv1 {
+  border-radius: 10px;
+  color: red;
+  font-weight: bold;
+  position: fixed;
+  top: 35%;
+  bottom: 35%;
+  text-align: left;
+  background-color: grey;
+  z-index: 1000;
+  right: 38%;
+  width: 25%;
+  height: 220px;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 10px;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
+.catpo .delDiv1 p {
+  color: black;
+}
+.catpo.delDiv1 .styleP1 {
+  color: black;
+  text-align: left;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.catpo .delDiv1 .button {
+  float: end;
+  width: 20%;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+  margin-bottom: 0px;
+}
+.catpo.hr {
+  margin-bottom: 0px;
+}
+.catpo.delDiv1 .button1 {
+  margin-top: 0px;
+  margin-left: 48%;
+  width: 20%;
+  color: grey;
+  background-color: none;
+  border: none;
+  margin-bottom: 0px;
+  background: none;
+}
+.catpo .delDiv1 .styleP2 {
+  color: grey;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 15%;
+  margin-right: 15%;
+}

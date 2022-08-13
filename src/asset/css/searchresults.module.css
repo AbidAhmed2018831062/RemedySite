@@ -1,0 +1,14 @@
+.searchResult {
+  width: 80%;
+  margin-left: 10%;
+}
+.searchResult .link {
+  color: red;
+  padding: 20px;
+  margin-right: 20px;
+  font-size: 160%;
+}
+.searchResult .choose {
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
