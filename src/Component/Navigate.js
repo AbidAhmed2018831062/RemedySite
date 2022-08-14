@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../asset/css/nav.module.css';
+
 import searchButton from '../asset/images/search1.png';
 import { appName } from './Global';
 
@@ -35,10 +36,19 @@ return(
        <NavLink end className={({isActive})=> isActive?styles.link:styles.inactive} to='/home' >Home</NavLink>
        </li>
        <li className={styles.li}>
-       <NavLink  className={({isActive})=> isActive?styles.link:styles.inactive}to='/profile'>Profile</NavLink>
+       <NavLink  className={({isActive})=> isActive?styles.link:styles.inactive}to='/userprofile'>Profile</NavLink>
        </li>
        <li className={styles.li}>
-       <NavLink className={({isActive})=> isActive?styles.link:styles.inactive} to='/about'>About</NavLink>
+       <NavLink end className={({isActive})=> isActive?styles.link:styles.inactive} to='/doctor/list' >Doctors</NavLink>
+       </li>
+       <li className={styles.li}>
+       <NavLink end className={({isActive})=> isActive?styles.link:styles.inactive} to='/doctor/posts' >Blogs</NavLink>
+       </li>
+      
+       <li className={styles.li}>
+       <NavLink className={({isActive})=> isActive?styles.link:styles.inactive} to='/users/cart'>
+       Cart
+       </NavLink>
        </li>
        </ul>
     

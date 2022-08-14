@@ -51,5 +51,5 @@ public class WebConfiguration extends WebMvcConfigurationSupport {
 	public static void main(String[] args) {
 		SpringApplication.run(FirstProj2Application.class, args);
 	}
-
+  
 }

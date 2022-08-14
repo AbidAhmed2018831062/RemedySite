@@ -5,8 +5,9 @@ function Posts({post})
 return(
     <div className={styles.posts}>
         <h3>{post.title}</h3>
+       
+        <img src={`http://127.0.0.1:8887/${post.fileName}`} alt={post.title}/>
         <span>Date: {post.date}</span>
-        <img src={post.img} alt="Title"></img>
         <pre>{post.des}</pre>
 
     </div>

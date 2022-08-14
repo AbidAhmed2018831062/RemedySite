@@ -1,17 +1,38 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import styles from '../asset/css/overview.module.css';
 import appointment from '../asset/images/appointment.png';
 import write from '../asset/images/des.png';
 import review from '../asset/images/review.png';
-
-function Overview()
+function Overview({profile})
 {
+    const [what,setWhat]=useState(false);
+    const [overview,setOverview]=useState();
+    useEffect(()=>{
+        axios.get(`http://localhost:5000/doctor/getoverview/${profile.userName}`,{
+            headers:{
+              "Authorization":`Bearer ${localStorage.getItem("token")}`,
+            }}).then((data)=>{
+            if(data.status===200)
+            {
+                console.log(data.data);
+                setWhat(true);
+                setOverview(data.data);
+               
+            }
+          }).catch(err=>
+            {
+              console.log(err);
+            });
+    },[])
 return(
-    <div className={styles.overview}>
-        <div className={styles.item1}>
+    <div>
+    {what&&<div className={styles.overview}>
+       
+       <div className={styles.item1}>
             <div className={styles.item}>
         <img src={appointment} alt="Appointment"></img>
-        <span>1000</span>
+        <span>{overview.appointmentcount}</span>
         </div>
         <h3>Total Appointment</h3>
         </div>
@@ -25,17 +46,19 @@ return(
         <div className={styles.item3}>
         <div className={styles.item}>
         <img src={appointment} alt="Appointment"></img>
-        <span>20 Nov 2020</span>
+        <span>{profile.date}</span>
         </div>
         <h3>Date Joined In the Website</h3>
         </div>
         <div className={styles.item4}>
         <div className={styles.item}>
         <img src={write} alt="Appointment"></img>
-        <span>40 Blogs</span>
+        <span>{overview.blogcount}</span>
         </div>
         <h3>Total Blogs Written</h3>
         </div>
+    
+    </div>}
     </div>
 )
 }

@@ -23,6 +23,13 @@
   margin-bottom: 20px;
   padding: 10px;
 }
+.newpost .show {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  background-color: #189a2e;
+  color: white;
+}
 .newpost .container select {
   width: 100%;
   border: 0px;

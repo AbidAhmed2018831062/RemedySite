@@ -1,0 +1,163 @@
+.userprofile {
+  display: flex;
+  width: 80%;
+
+  margin: 0px auto;
+  padding-top: 10px;
+  justify-content: space-between;
+}
+body {
+  background-color: #f1f2f7;
+}
+
+.userprofile .item1 {
+  width: 25%;
+  margin-right: 20px;
+}
+.userprofile .item1 .profilepic img {
+  width: 100px;
+  height: 100px;
+  margin-left: calc(68% - 100px);
+  border-radius: 50%;
+  margin-top: 10px;
+  border: 5px solid #fdd36c;
+}
+.userprofile .item1 .profilepic h2 {
+  margin-left: 30%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.userprofile .item1 .profilepic span {
+  margin-left: 23%;
+  padding-bottom: 20px;
+  display: block;
+}
+.userprofile .item2 {
+  width: 65%;
+}
+.userprofile .profilepic {
+  background-color: #fbc02d;
+  border-radius: 5px;
+}
+.userprofile .item1 .profile {
+  display: flex;
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+.userprofile .item1 .profile img {
+  margin-right: 20px;
+}
+.userprofile .item2 {
+  padding: 20px;
+}
+.userprofile .item2 .details {
+  background-color: white;
+  padding-bottom: 30px;
+}
+.userprofile .item2 .details h2 {
+  background-color: white;
+  padding-top: 20px;
+  padding-left: 20px;
+
+  color: grey;
+}
+.userprofile .item2 .details .detailsdiv {
+  display: flex;
+  padding: 20px;
+  color: grey;
+  border-radius: 5px;
+}
+.userprofile .item2 .details .part1,
+.part2 {
+  width: 50%;
+}
+.userprofile .item2 .details pre {
+  display: block;
+}
+.userprofile .item2 .details .part2 {
+  float: right;
+}
+.userprofile .item2 .details pre {
+  margin-bottom: 20px;
+}
+.userprofile .item2 .overview {
+  display: flex;
+  flex-wrap: wrap;
+}
+.userprofile .item2 .overview .totalorder,
+.thismonth {
+  display: flex;
+  padding: 20px;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 49%;
+}
+.userprofile .item2 .overview .totalorder {
+  margin-right: 1%;
+  margin-bottom: 30px;
+}
+.userprofile .item2 .overview .thismonth {
+  margin-left: 1%;
+  margin-bottom: 30px;
+}
+.userprofile .item2 .overview .totalorder .insidediv span,
+h4 {
+  display: block;
+  margin-bottom: 10px;
+}
+.userprofile .item2 .overview .thismonth .insidediv span,
+h4 {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.userprofile .item2 .overview .totalorder h3 {
+  width: 30%;
+  margin-top: 10%;
+  padding-left: 30px;
+  margin-right: 80px;
+  color: #ec747c;
+  font-size: 130%;
+}
+.userprofile .item2 .overview .thismonth h3 {
+  width: 30%;
+  margin-top: 10%;
+  padding-left: 30px;
+  margin-right: 80px;
+  color: #add8e6;
+  font-size: 130%;
+}
+.userprofile .item2 .overview .totalorder .insidediv {
+  width: 70%;
+  margin-right: 70px;
+}
+.userprofile .item2 .overview .thismonth .insidediv {
+  width: 70%;
+  margin-right: 50px;
+}
+.userprofile .item2 .right {
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-bottom: 30px;
+}
+.userprofile .item2 .pr .quotes {
+  background-color: #fbc02d;
+  padding: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.userprofile .item2 .overview .totalorder .insidediv h4 {
+  color: #ec747c;
+  font-size: 120%;
+  font-weight: bolder;
+}
+.userprofile .item2 .overview .thismonth .insidediv h4 {
+  color: #add8e6;
+  font-size: 120%;
+  font-weight: bolder;
+}

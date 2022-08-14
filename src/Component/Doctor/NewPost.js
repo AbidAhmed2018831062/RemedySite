@@ -6,10 +6,13 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import Denied from '../Denied';
 import styles from 'D:/medicine/src/asset/css/newpost.module.css';
+import cancel from 'D:/medicine/src/asset/images/cancel.png';
 function AddPost()
 {
+  let [show,setShow]=useState(false);
+  let [text,setText]=useState("");
   let userType;
-  if(localStorage.getItem("type")!=="Doctor")
+  if(localStorage.getItem("type")!=="doctor")
    userType=false;
    else
    userType=true;
@@ -60,12 +63,29 @@ const form=useRef();
       setTitle("");
       setDes("");
       setType("Neurology");
-        emailjs.sendForm(process.env.React_App_SERVICE_ID, process.env.React_App_Template_Id, form.current, process.env.React_App_Public)
+      setShow(true);
+      setText("Your post was posted successfully");
+      axios.put(`http://localhost:5000/doctor/overviewup/${localStorage.getItem("username")}`,{blogcount:1,appointmentcount:0,username:localStorage.getItem("username")},{headers:{
+        "Authorization":`Bearer ${localStorage.getItem("token")}`,
+       }}).then((data)=>{
+        if(data.status===200)
+        {
+          emailjs.sendForm(process.env.React_App_SERVICE_ID, process.env.React_App_Template_Id, form.current, process.env.React_App_Public)
         .then((result) => {
         }, (error) => {
             console.log(error.text);
         });
        setWhat(true);
+        }
+       }).catch(err=>
+        {
+          console.log(err);
+         
+
+        });
+      
+      
+        
       }
       }).catch(err=>
         {
@@ -83,8 +103,20 @@ const imageChange=(e)=>{
     setFile(e.target.files[0]);
    
   }
+  const remove=()=>{
+    setShow(false);   }
+ const  removeShow=()=>{
+    const interval=setInterval(() => {
+        setShow(false);
+      
+    }, 10000);
+ }
 return(
     <div className={styles.newpost}>
+        {show&&<div  className={styles.show}>
+            <p>{text}</p>
+            <img onClick={remove}src={cancel} alt="Cancel"></img>
+            </div>}
     { userType&&<div className={styles.container}>
          <form ref={form}onSubmit={ handleSubmit(submit)}>
          <input className={styles.fileSelector}

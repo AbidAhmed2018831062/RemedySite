@@ -8,6 +8,7 @@ import javax.persistence.Id;
 public class Cart {
     @Id
     private Long medicineId;
+   
     @GeneratedValue
     private Long id;
     private String name;

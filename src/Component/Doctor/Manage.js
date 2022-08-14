@@ -13,7 +13,7 @@ function Manage()
             if(data.status===200)
             {
                 
-              
+              console.log(data.data);
                 setAppointment(data.data);
                 setWhat(true);
             }

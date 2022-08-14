@@ -5,7 +5,7 @@ import CartItems from './ShowCart';
 import styles from 'D:/medicine/src/asset/css/showcart.module.css';
 function Cart()
 {
-    const username="abid62";
+    const username=localStorage.getItem("username");
     let [ship,setShip]=useState("");
     let [code,setCode]=useState(0);
     let [item,setItem]=useState(0);
@@ -15,7 +15,7 @@ function Cart()
     useEffect(()=>{
         axios.get(`http://localhost:5000/users/cart/${username}`,{
             headers:{
-              "Authorization":`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmlkNjIxIiwiZXhwIjoxNjU5MTI3OTk1LCJpYXQiOjE2NTgzNTA3NDJ9.2vSHsj3LMjyVgEvmvzIxtIAYworN5V63_89a-XfSTqY`,
+              "Authorization":`Bearer ${localStorage.getItem("token")}`,
             }}).then((data)=>{
             if(data.status===200)
             {
@@ -134,7 +134,7 @@ return(
             <pre>{(price+code)}</pre>
             </div>
             </div>
-            <NavLink className={styles.checkout} to="/cart">
+            <NavLink className={styles.checkout} to={`/checkout?price=${price}&item=${item}`}>
             Checkout
             </NavLink>
            </div>

@@ -2,12 +2,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Navigate } from 'react-router-dom';
 import * as yup from 'yup';
 import style from '../asset/css/addmedicine.module.css';
 import wall from '../asset/images/wall.jpg';
 
 function AddMedicine()
 {
+  let userType;
+  console.log(localStorage.getItem("type"))
+  if(localStorage.getItem("type")!=="Normal"&&localStorage.getItem("type")!=="doctor")
+   userType=true;
+   else
+   userType=false;
     const schema=yup.object().shape({
         name:yup.string().min(4).required("Name is required"),
         cat:yup.string().required(),
@@ -64,7 +71,7 @@ function AddMedicine()
      name,description:des,price,company:com,mg,category:cat,quantity:qua,medicineImage:file
      },{
       headers:{
-        "Authorization":`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmlkNjIxIiwiZXhwIjoxNjU5MTI3OTk1LCJpYXQiOjE2NTgzNTA3NDJ9.2vSHsj3LMjyVgEvmvzIxtIAYworN5V63_89a-XfSTqY`,
+        "Authorization":`Bearer ${localStorage.getItem("token")}`,
         'Content-type':"multipart/form-data"
       }}).then((data)=>{
       if(data.status===200)
@@ -80,6 +87,7 @@ function AddMedicine()
      
 return(
     <div className={style.addMedicine}>
+      {!userType&&<Navigate to="/denied"></Navigate>}
         <div className={style.container}>
         <img src={wall} alt="Medicine"/>
         <h3 className={style.title}>Add a New Medicine</h3>

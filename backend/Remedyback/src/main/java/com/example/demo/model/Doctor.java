@@ -14,6 +14,13 @@ public class Doctor {
     private String fileName;
     private String userName;
     private String password;
+    private String date;
+    public String getDate() {
+        return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
     private String status;
     private String phone;
     public int getId() {

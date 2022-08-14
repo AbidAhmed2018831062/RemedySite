@@ -73,11 +73,7 @@ const form=useRef();
         form.current.message.value= form.current.message.value+"\n"+"Email is: "+email;
         axios.post("http://localhost:5000/adddoctor",{
          name:name+" "+lastname,userName:username,fileName:"abid",password:password,email:email,phone,type,reg:reg,status:"false",address,category:cat
-       },{
-        headers:{
-          "Authorization":`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmlkNjIxIiwiZXhwIjoxNjU5MTI3OTk1LCJpYXQiOjE2NTgzNTA3NDJ9.2vSHsj3LMjyVgEvmvzIxtIAYworN5V63_89a-XfSTqY`,
-         
-        }}).then((data)=>{
+       }).then((data)=>{
         if(data.status===200){
           form.current.reset();
         console.log(data);
@@ -87,7 +83,8 @@ const form=useRef();
         setLastName('');
         setName('');
         setPassword('');
-        setType('Normal user');
+        setType('Doctor');
+        setWhat(true);
         setTy(false);
         setusername('');
         emailjs.sendForm(process.env.React_App_SERVICE_ID, process.env.React_App_Template_Id, form.current, process.env.React_App_Public)
@@ -117,11 +114,7 @@ else if(err.response.data.msg.includes("Email")){
     else{
       axios.post("http://localhost:5000/adduser",{
         firstName:name,lastName:lastname,userName:username,password:password,email:email,phone,type
-     },{
-      headers:{
-        "Authorization":`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmlkNjIxIiwiZXhwIjoxNjU5MTI3OTk1LCJpYXQiOjE2NTgzNTA3NDJ9.2vSHsj3LMjyVgEvmvzIxtIAYworN5V63_89a-XfSTqY`,
-       
-      }}).then((data)=>{
+     }).then((data)=>{
       if(data.status===200){
 
         setReg("");
@@ -134,6 +127,7 @@ else if(err.response.data.msg.includes("Email")){
         setTy(false);
         setusername('');
         setWhat(true);
+       
       }
      
     }).catch(err=>
@@ -211,6 +205,7 @@ else if(err.response.data.msg.includes("Email")){
    
     <input type="submit"></input>
     </form>
+    {what&& <Navigate to="/login"></Navigate>}
     {what&& <Navigate to="/verifydoctor"></Navigate>}
     </div> 
     </div>

@@ -13,6 +13,9 @@
 }
 .posts h3 {
   margin-bottom: 10px;
+  color: red;
+  text-align: center;
+  font-size: 140%;
 }
 .posts span {
   margin-top: 20px;

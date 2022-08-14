@@ -7,32 +7,53 @@ function DoctorList()
 {
 
 let doctors=useRef([]);
+const [doc,setDoc]=useState([]);
 const [what,setWhat]=useState(false);
 useEffect(()=>{
-  axios.get(`http://localhost:5000/getdoctors`,{
+  axios.get(`http://localhost:5000/doctor/getdoctors`,{
             headers:{
-              "Authorization":`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmlkNjIxIiwiZXhwIjoxNjU5MTI3OTk1LCJpYXQiOjE2NTgzNTA3NDJ9.2vSHsj3LMjyVgEvmvzIxtIAYworN5V63_89a-XfSTqY`,
+              "Authorization":`Bearer ${localStorage.getItem("token")}`,
             }}).then((data)=>{
             if(data.status===200)
             {
-                doctors.current=data.data;
-                console.log(data.data);
-                 setWhat(true);
+              doctors.current=data.data;
+              setDoc(data.data);
+            
+              console.log(data.data);
+              setWhat(true);
             }
           }).catch(err=>
             {
               console.log(err);
             });
         
-})
+},[])
+let filter=(e)=>{
+  console.log(e);
+
+  let filterDoc=[];
+  doctors.current.forEach((docs)=>{
+    console.log(docs.category+""+e);
+  if(docs.category===e){
+      
+      filterDoc.push(docs);
+  }
+});
+setDoc(filterDoc);
+}
 return(
     <div className={styles.doctorlist}>
-        <DoctorCategory/>
-    {what&&<div className={styles.container}>
-        {doctors.current.map((e)=>{
-            return <Doctors doctor={e}/>
-        })}
-    </div>}
+        <DoctorCategory filter={filter}/>
+    <div className={styles.container}>
+    { doc.map((e)=>{
+       console.log(e.userName);
+      if(e.userName===localStorage.getItem("username")){
+       
+      return <div></div>;
+      }
+            return <Doctors doctor={e}/>}
+      )}
+    </div>
     </div>
 )
 }

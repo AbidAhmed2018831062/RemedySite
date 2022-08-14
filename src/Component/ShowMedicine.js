@@ -15,9 +15,10 @@ function Medicine()
 console.log(id);
     const [what,setWhat]=useState(false);
     useEffect(()=>{
+      console.log(localStorage.getItem("token"));
         axios.get(`http://localhost:5000/medicine/${id}`,{
             headers:{
-              "Authorization":`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmlkNjIxIiwiZXhwIjoxNjU5MTI3OTk1LCJpYXQiOjE2NTgzNTA3NDJ9.2vSHsj3LMjyVgEvmvzIxtIAYworN5V63_89a-XfSTqY`,
+              "Authorization":`Bearer ${localStorage.getItem("token")}`,
             }}).then((data)=>{
             if(data.status===200)
             {
@@ -31,13 +32,13 @@ console.log(id);
             });
     },[]);
     const addToCart=(e)=>{
-   // let username=localStorage.getItem("username");
-   let username="abid62";
-    axios.post(`http://localhost:5000/users/addtocart/${username}`,{
+   let username=localStorage.getItem("username");
+ 
+    axios.post(`http://localhost:5000/users/addtocart/${localStorage.getItem("username")}`,{
         name:card.current.name,fileName:card.current.fileName,company:card.current.company,price:card.current.price,count:1,username,medicineId:card.current.id
     },
      {headers:{
-        "Authorization":`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmlkNjIxIiwiZXhwIjoxNjU5MTI3OTk1LCJpYXQiOjE2NTgzNTA3NDJ9.2vSHsj3LMjyVgEvmvzIxtIAYworN5V63_89a-XfSTqY`,
+        "Authorization":`Bearer ${localStorage.getItem("token")}`,
       }}).then((data)=>{
       if(data.status===200)
       {

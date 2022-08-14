@@ -16,7 +16,7 @@ import Allergy from 'D:/medicine/src/asset/images/Allergy.jpg';
 
 function DoctorCategory({filter})
 {
-let category=["Neurologists", "Heart","Gastric","Pediatricians","Gyenocologist","Flu","Allergists","Psychiatrist","Ophthalmologist","Urologists","Other"];
+let category=["Neurologist", "Heart","Gastric","Pediatricians","Gyenocologist","Flu","Allergists","Psychiatrist","Ophthalmologist","Urologists","Other"];
 let images=[neuro,heart,gas,pedi,geyno,cold,Allergy,phy,opt,uro,other];
 
 let [what, setWhat]=useState(true);
@@ -34,7 +34,7 @@ return(
         </div>
        {what&&<div> {category.map((e,i)=>{
             return <ul>
-                <div onClick={()=> filter(e)}>
+                <div  onClick={()=> filter(e)}>
                     <img src={images[i]} alt={e}/>
                 <li key={i}>{e}</li>
                 </div>

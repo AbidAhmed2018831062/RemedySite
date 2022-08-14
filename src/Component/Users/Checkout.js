@@ -1,12 +1,19 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
+import queryString from 'query-string';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import * as yup from 'yup';
 import styles from 'D:/medicine/src/asset/css/checkout.module.css';
 function Checkout({total1})
 {
-  let total={item:5,price:2000}
+  let [show,setShow]=useState(false);
+  let [text,setText]=useState("");
+  const {search}=useLocation();
+  let {price,item}=queryString.parse(search);
+  price=parseInt(price);
+  item=parseInt(item);
    const [ship,setShip]=useState(0);
     const [code,setCode]=React.useState('');
     const [city,setCity]=React.useState('Sylhet');
@@ -14,6 +21,15 @@ function Checkout({total1})
     const [phone,setPhone]=React.useState('');
     const [method,setMethod]=React.useState("online");
     const [address,setaddress]=React.useState("");
+    
+    const rand = () => {
+      return Math.random().toString(36).substr(2);
+    };
+    
+    const token = () => {
+      return rand() + rand();
+    };
+    
     const schema=yup.object().shape({
       address:yup.string().min(4).required("Address is required"),
         code:yup.number().required("Postal Code required"),
@@ -49,13 +65,75 @@ function Checkout({total1})
         }
       }
         const submit=()=>{
-            
+        /*  */
+         // console.log("Hello");
+          
+          if(address.length<6){
+           
+          setError("address", { type: "focus",message: 'Address needs to be more than 6characters' }, { shouldFocus: true });
+          }
+          if(phone.length!==11){
+           
+          setError("phone", { type: "focus",message: 'Phone needs to be 11characters' }, { shouldFocus: true });
+          }
+          var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+          if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) ){
+        
+            setError("email", { type: "focus",message: 'Needs to be a valid email address' }, { shouldFocus: true });
+        
+          }
+          if(code.length<1){
+           
+            setError("code", { type: "focus",message: 'Postal code needs to be inserted' }, { shouldFocus: true });
+            }
+          if(code.length>1&&address.length>6&&phone.length===11&&/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+            axios.post("http://localhost:5000/users/neworder",{phone,email,address,username:localStorage.getItem("username"),name:localStorage.getItem("username"),price:price+ship,deliverytype:method,token:token(),date:new Date()},{headers:{
+              "Authorization":`Bearer ${localStorage.getItem("token")}`,
+             }}).then((data)=>{
+              if(data.status===200){
+               
+                axios.delete(`http://localhost:5000/users/cart/delete/${localStorage.getItem("username")}`,{headers:{
+                  "Authorization":`Bearer ${localStorage.getItem("token")}`,
+                 }}).then((data)=>{
+                  if(data.status===200){
+                   setShow(true);
+                   setText("Your order was places successfully");
+                   setPhone("");
+                   setEmail("");
+                   setCode("");
+                   setCity("");
+                  console.log(data);
+                }
+                }).catch(err=>
+                  {
+                    console.log(err);
+                   
+          
+                  });            }
+            }).catch(err=>
+              {
+                console.log(err);
+               
+      
+              });
+            }
+          
         }
+        const remove=()=>{
+          setShow(false);   }
+       const  removeShow=()=>{
+          const interval=setInterval(() => {
+              setShow(false);
+            
+          }, 10000);
+       }
         return(
     <div className={styles.checkout}>
+    
         <div className={styles.delivery}>
             <h2>Enter Your details</h2>
-            <form onSubmit={()=> handleSubmit(submit)}>
+            <form>
             <input   type="email"  value={email}   placeholder="Email" {...register('email')} onChange={handleChange}></input>
     <p className={styles.error}>{errors.email?.message}</p>
     <input  type="text"   value={phone}   placeholder="Phone" {...register('phone')} onChange={handleChange}></input>
@@ -75,7 +153,7 @@ function Checkout({total1})
                             <option value="Rajshahi">Rajshahi</option>
                             <option value="Barisal">Barisal</option>
                     </select> 
-                    <input type="submit"></input>
+                  
             </form>
             <div className={styles.method}>
                 <h3>Choose your delivery method</h3>
@@ -101,8 +179,8 @@ function Checkout({total1})
             <pre>Shipping</pre>
             </div>
             <div className={styles.total1}>
-            <pre>{total.item}</pre>
-            <pre>{total.price}</pre>
+            <pre>{item}</pre>
+            <pre>{price}</pre>
             <pre>{ship}</pre>
             </div>
             </div>
@@ -116,13 +194,13 @@ function Checkout({total1})
             <pre style={{fontWeight:"bold",fontSize:"120%"}}>Total Amount:</pre>
             </div>
             <div className={styles.total1}>
-            <pre>{total.price+ship}</pre>
+            <pre>{price+ship}</pre>
             </div>
             </div>
-            <NavLink className={styles.checkout} to="/cart">
-            PlaceOrder
-            </NavLink>
+          <button className={styles.button} onClick={submit}> Submit</button>
+            
            </div>
+           {show&&<Navigate to="/successful"></Navigate>}
     </div>
 )
         

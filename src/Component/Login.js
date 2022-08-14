@@ -39,15 +39,21 @@ const form=useRef();
     }).then((data)=>{
             if(data.status===200)
             {
-                setWhat(true);
-                setusername("");
-                setPassword("");
+                
                 console.log(data);
                 if(data.data.msg.includes("false")){
                 setError("verify", { type: "focus",message: 'Your verification is still pending. Please try again later!!' }, { shouldFocus: true });
                 }
-                else
-                localStorage.setItem("token",data.data.msg)
+                else{
+                    console.log(data.data.status);
+                localStorage.setItem("username",username);
+                localStorage.setItem("type",data.data.status);
+                localStorage.setItem("token",data.data.msg);
+                setusername("");
+                setWhat(true);
+             
+                setPassword("");
+                }
                 
             }
           }).catch(err=>

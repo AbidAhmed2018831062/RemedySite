@@ -1,0 +1,104 @@
+.sideMenu .span {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 120%;
+  margin-top: -3px;
+  margin-left: 10px;
+}
+
+.sideMenu .item {
+  margin-bottom: 10px;
+  display: flex;
+}
+.sideMenu {
+  top: auto;
+  position: absolute;
+  right: 5.5%;
+  background-color: grey;
+  z-index: 1000;
+  margin-top: -70px;
+  margin-left: -30px;
+  width: 300px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #181818;
+  box-shadow: 2px 2px grey;
+}
+.sideMenu .watAndFav {
+  position: fixed;
+  bottom: 2%;
+  background-color: grey;
+  z-index: 1000;
+  text-align: center;
+  left: 0%;
+  width: 400px;
+  padding-left: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  background-color: #181818;
+  box-shadow: 2px 2px grey;
+  padding: 10px;
+  text-align: center;
+}
+.sideMenu .delDiv {
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  position: fixed;
+  top: 35%;
+  bottom: 35%;
+  text-align: left;
+  background-color: grey;
+  z-index: 1000;
+  right: 38%;
+  width: 25%;
+  height: 220px;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 10px;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+}
+.sideMenu .spanNav {
+  text-decoration: none;
+}
+.sideMenu .delDiv .styleP1 {
+  color: black;
+  text-align: left;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.sideMenu .delDiv .styleP2 {
+  color: grey;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.sideMenu .button {
+  float: end;
+  width: 20%;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+  margin-bottom: 0px;
+}
+.sideMenu .hr {
+  margin-bottom: 0px;
+}
+.sideMenu .button1 {
+  margin-top: 0px;
+  margin-left: 48%;
+  width: 20%;
+  color: grey;
+  background-color: none;
+  border: none;
+  margin-bottom: 0px;
+  background: none;
+}
