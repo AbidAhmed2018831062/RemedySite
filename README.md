@@ -1,3 +1,22 @@
+<div>
+The COVID times have shown us how necessary doctors and medicines are to us. People were craving medicines and doctors yet they could not find proper medicines and doctors in the time of emergency. Many people had to die because of a lack of oxygen and proper medication. We do not predict or know when and how things like COVID may resurface again. For that we need to be ready to overcome that else the situation will be like the COVID times again. 
+
+Even without the COVID times people often find it hard to appoint doctors in our country because of the hard and tight schedule doctors have and often patients need to spend hours, and even days to get an appointment with a doctor. The scenario in the medical sector is not good either. People cannot buy their necessary medicines in times of emergencies because of the shortage of proper pharmacies in their neighborhood. 
+
+There are a lot of apps and websites that seem to solve this problem but often they cannot deliver the medicines quickly, and most of the doctor appointment apps or websites deal with online appointments. Online appointments can solve the issues to a certain extent but most of the times patients and doctors need to sit face-face to give and receive proper treatment. 
+
+The project aims to address these issues and solve them. It is important that every person in this country needs to get proper medication and treatment in times of emergency. Therefore, our project will aim to introduce an online medicine shop along with offline and online doctor appointments.
+</div>
+</br>
+</br>
+</br>
+<hr>
+
+</br>
+</br>
+</br>
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
